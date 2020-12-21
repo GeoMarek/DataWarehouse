@@ -45,15 +45,18 @@ CREATE TABLE Tramways (
 	Line VARCHAR(8)
     );
 
--- dodanie tabeli Tramways
+-- dodanie tabeli Drivers
 CREATE TABLE Drivers (
     ID_Driver INT PRIMARY KEY IDENTITY,
+	DriverNum VARCHAR(4),
 	Name VARCHAR(80),
 	Sex VARCHAR(9),
 	AgeCategory VARCHAR(20),
 	StartYear INT,
-	EndYear INT
+	EndYear INT,
+	IsCurrent VARCHAR(3)
     );
+
 
 -- dodanie tabeli WorkIndexes
 CREATE TABLE WorkIndexes (
