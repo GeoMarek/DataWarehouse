@@ -52,12 +52,18 @@ If (object_id('driversTMP') is not null)
 
 -- stworzenie tymczasowej tabeli
 CREATE TABLE driversTMP (
-    ID_Driver INT primary key
+    ID_Driver INT primary key,
+	first_name VARCHAR(80),
+	last_name VARCHAR(80),
+	sex VARCHAR(6),
+	birth DATETIME,
+	number VARCHAR(80),
+	pesel VARCHAR(80)
     );
 
 -- wypelnienie tymczasowej tabeli
 bulk insert driversTMP
-from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\drivers.csv'
+from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\drivers1.csv'
 with(
 rowterminator='\n',
 fieldterminator=',')
@@ -159,7 +165,7 @@ MERGE INTO failures	USING viewETL_failures
 				INSERT
 				Values (
 				viewETL_failures.Type,
-				NULL
+				'brak danych'
 				)			
 		WHEN Not Matched By Source
 			THEN DELETE;
@@ -178,4 +184,3 @@ drop table stationsTMP;
 drop table tramwaysTMP;
 drop table driversTMP;
 
-select * from failures;

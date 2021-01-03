@@ -1,4 +1,5 @@
 GO
+use HurtowniaDanych
 -- usuwanie widoku
 If (object_id('view_dates') is not null) 
 	DROP VIEW view_dates;

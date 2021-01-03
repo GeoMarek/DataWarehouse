@@ -1,4 +1,4 @@
-USE kierowcyTest
+USE HurtowniaDanych
 GO
 
 If (object_id('dbo.DriversTemp') is not null) DROP TABLE dbo.DriversTemp;
@@ -12,7 +12,7 @@ go
 
 
 BULK INSERT dbo.DriversTemp
-    FROM 'C:\Users\Kams\Desktop\Nowy folder\generator kierowcow\drivers1.csv'--zmieniamy na drivers2.csv
+    FROM 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\drivers1.csv'--zmieniamy na drivers2.csv
     WITH
     (
     FIRSTROW = 1,
