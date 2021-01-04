@@ -40,6 +40,7 @@ CREATE TABLE Failures (
 -- dodanie tabeli Tramways
 CREATE TABLE Tramways (
 	ID_Tramway INT PRIMARY KEY IDENTITY,
+	TramNum INT,
 	Model VARCHAR(80),
 	YearProduction INT,
 	Line VARCHAR(8)

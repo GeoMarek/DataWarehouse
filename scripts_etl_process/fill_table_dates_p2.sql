@@ -1,6 +1,6 @@
 use HurtowniaDanych
 go
-delete from Dates;
+
 -- pomocnicze zmienne
 Declare @StartDate date; 
 Declare @EndDate date;

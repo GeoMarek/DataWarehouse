@@ -32,6 +32,7 @@ go
 CREATE VIEW viewETL_tramways
 AS
 SELECT DISTINCT
+	tramwaysTMP.ID_Tram as [TramNum],
 	tramwaysTMP.Model as [Model],
 	tramwaysTMP.production_year as [YearProduction],
 	CASE
@@ -52,6 +53,7 @@ MERGE INTO tramways	USING viewETL_tramways
 			THEN
 				INSERT
 				Values (
+				viewETL_tramways.TramNum,
 				viewETL_tramways.Model,
 				viewETL_tramways.YearProduction, 
 				viewETL_tramways.Line

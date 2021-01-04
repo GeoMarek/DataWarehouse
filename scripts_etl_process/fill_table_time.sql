@@ -1,6 +1,6 @@
 -- wypelnienie zawartoscia tabeli Time
 use HurtowniaDanych
-delete from Time;
+
 DECLARE @hour INT = 0
 DECLARE @min INT = 0
 DECLARE @index INT = 1
