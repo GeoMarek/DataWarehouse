@@ -15,7 +15,7 @@ CREATE TABLE coursesTMP (
     );
 
 bulk insert coursesTMP
-from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\courses1.csv'
+from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\courses2.csv'
 with(
 rowterminator='\n',
 fieldterminator=',')
@@ -38,7 +38,7 @@ CREATE TABLE journeysTMP (
 
 -- wypelnienie tymczasowej tabeli
 bulk insert journeysTMP
-from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\journeys1.csv'
+from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\journeys2.csv'
 with(
 rowterminator='\n',
 fieldterminator=',')
@@ -58,7 +58,7 @@ CREATE TABLE failuresTMP (
 
 -- wypelnienie tymczasowej tabeli
 bulk insert failuresTMP
-from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\failures1.csv'
+from 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\failures2.csv'
 with(
 rowterminator='\n',
 fieldterminator=',')

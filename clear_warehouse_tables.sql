@@ -18,3 +18,5 @@ select count(*) as failures from Failures;
 select count(*) as stations from Stations;
 select count(*) as tramways from Tramways;
 select count(*) as journeys from Journeys;
+
+select * from Journeys;

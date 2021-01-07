@@ -1,0 +1,82 @@
+
+-- WYMAGANIE DO SPE£NIENIA
+--		calculated member
+--		where clause
+--		hierarchy function
+--		top or bottom
+--		numerical
+
+-- DODATKOWO KPI W VISUAL STUDIO
+--		Miesiêczne zmniejszenie sumarycznego czasu opóŸnieñ tramwajów o nie mniej ni¿ 1% w porównaniu do poprzedniego miesi¹ca.
+--		Miesiêczne zmniejszenie sumarycznej iloœci awarii tramwajów o nie mniej ni¿ 2.5% w porównaniu do poprzedniego miesi¹ca.
+
+
+
+-- porównanie sumarycznych opóŸnieñ dla przejazdów z tego i poprzedniego miesi¹ca
+SELECT	{ [Measures].[Sum_TimeDelay]} ON COLUMNS,
+		{ [Dates].[Hierarchy].[Year].&[2011].LASTCHILD, [Dates].[Hierarchy].[Year].&[2011].LASTCHILD.PREVMEMBER } ON ROWS
+		FROM [Hurtownia Danych];
+
+
+-- Jaka linia mia³a najwiêksze sumaryczne opóŸnienie w tym miesi¹cu w porównaniu do miesi¹ca poprzedniego?
+SELECT {(	[Dates].[Hierarchy].[Year].&[2011].[December], 
+			TOPCOUNT( [Tramways].[Line].Children, 1, ([Dates].[Hierarchy].[Year].&[2011].[December], [Measures].[Sum_TimeDelay]))),
+		(	[Dates].[Hierarchy].[Year].&[2011].[November], 
+			TOPCOUNT( [Tramways].[Line].Children, 1, ([Dates].[Hierarchy].[Year].&[2011].[November], [Measures].[Sum_TimeDelay])))
+		} ON ROWS,
+		[Measures].[Sum_TimeDelay] ON COLUMNS
+		FROM [Hurtownia Danych];
+
+-- Na jakich przystankach s¹ najwiêksze sumaryczne opóŸnienia w tym i poprzednim miesi¹cu?
+SELECT {(	[Dates].[Hierarchy].[Year].&[2011].[December], 
+			TOPCOUNT( [ID Station Start].[Name].Children, 1, ([Dates].[Hierarchy].[Year].&[2011].[December], [Measures].[Sum_TimeDelay]))),
+		(	[Dates].[Hierarchy].[Year].&[2011].[November], 
+			TOPCOUNT( [ID Station Start].[Name].Children, 1, ([Dates].[Hierarchy].[Year].&[2011].[November], [Measures].[Sum_TimeDelay])))
+		} ON ROWS,
+		[Measures].[Sum_TimeDelay] ON COLUMNS
+		FROM [Hurtownia Danych];
+
+-- Porównaj liczbê przepracowanych godzin dziennych i nocnych kierowców, którzy byli prowadzili sumarycznie najbardziej opóŸnione tramwaje w tym i poprzednim miesi¹cu.
+SELECT {(	[Dates].[Hierarchy].[Year].&[2008].[December], 
+			TOPCOUNT( [Drivers].[Name].Children, 1, ([Dates].[Hierarchy].[Year].&[2008].[December], [Measures].[Sum_TimeDelay]))),
+		(	[Dates].[Hierarchy].[Year].&[2008].[November], 
+			TOPCOUNT( [Drivers].[Name].Children, 1, ([Dates].[Hierarchy].[Year].&[2008].[November], [Measures].[Sum_TimeDelay])))
+		} ON ROWS,
+		{{[Measures].[Sum_DayHours],[Measures].[Sum_NightHours]}, [Measures].[Sum_TimeDelay]} ON COLUMNS
+		FROM [Hurtownia Danych];
+
+-- Za jaki procent opóŸnieñ w tym i poprzednim miesi¹cu s¹ odpowiedzialni kierowcy mêscy?
+WITH MEMBER [MaleTimeDelay] AS '([Drivers].[Sex].[Male],[Measures].[Sum_TimeDelay]) / ([Drivers].[Sex].[All],[Measures].[Sum_TimeDelay])'
+SELECT	{([Dates].[2011].[December]),([Dates].[2011].[November])} ON ROWS,
+		[Measures].[MaleTimeDelay] ON COLUMNS
+		FROM [Hurtownia Danych]
+		WHERE [Drivers].[Sex].[Male];
+
+-- Iloœæ awarii w ka¿dym dniu tygodnia z obecnego i poprzedniego miesi¹ca.
+SELECT [Dates].[Day In Week].Children ON ROWS,
+		({([Dates].[2011].[December]),([Dates].[2011].[November])}, [Measures].[Count_Journey]) ON COLUMNS
+		FROM [Hurtownia Danych]
+		WHERE [Failures].[Type].&[drobna usterka];
+
+-- O której godzinie wyst¹pi³o najwiêcej awarii w analizowanym miesi¹cu?
+SELECT TOPCOUNT([Time].[Hour].Children, 1, ([Measures].[Count_Journey], [Dates].[2011].[December])) ON ROWS,
+		([Dates].[2011].[December], [Measures].[Count_Journey]) ON COLUMNS
+		FROM [Hurtownia Danych]
+		WHERE [Failures].[Type].&[drobna usterka];
+
+-- Czy tramwaje z œredni¹ ocen¹ poni¿ej 50% psu³y siê w tym miesi¹cu czêœciej od poprzedniego? (nie ma informacji na temat opinii)
+
+
+
+-- Czy dane modele tramwajów mia³y wiêcej awarii od innych bior¹c pod uwagê aktualny i poprzedni miesi¹c?
+SELECT TOPCOUNT([Time].[Hour].Children, 1, [Measures].[Count_Journey]) ON ROWS,
+		({([Dates].[2011].[December]),([Dates].[2011].[November])}, [Measures].[Count_Journey]) ON COLUMNS
+		FROM [Hurtownia Danych]
+		WHERE [Failures].[Type].&[drobna usterka];
+
+
+-- Ile awarii w tym i poprzednim miesi¹cu by³o spowodowanych przez kierowców aut osobowych?
+
+-- Przy jakim przystanku dok³adnie by³o najwiêcej awarii w tym i poprzednim miesi¹cu? 
+
+-- Ile by³o awarii tramwajów w dni wolne od pracy porównuj¹c ten miesi¹c i poprzedni? (nie ma informacji na temat dni ustawowo wolnych od pracy)

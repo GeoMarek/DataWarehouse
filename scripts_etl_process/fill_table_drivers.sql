@@ -7,12 +7,12 @@ go
 
 If (object_id('dbo.ObecnaData') is not null) DROP TABLE dbo.ObecnaData;
 CREATE TABLE dbo.ObecnaData(dzis date);
-insert into ObecnaData (dzis) values ('01-01-2015');--date trzeba zmieniæ np na 2018
+insert into ObecnaData (dzis) values ('01-01-2014'); 
 go
 
 
 BULK INSERT dbo.DriversTemp
-    FROM 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\drivers1.csv'--zmieniamy na drivers2.csv
+    FROM 'C:\Users\Marek Grudkowski\Desktop\HurtownieDanych\DataWarehouse\data_sources\drivers2.csv'--zmieniamy na drivers2.csv
     WITH
     (
     FIRSTROW = 1,

@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>warehouse_implementation</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>+aZLj6A5nPcqAdvaxIcHrAKIvpg=06.01.2021 19:17:4306.01.2021 19:17:43</TimeStamp>
+        <ID>
+          <String>Hurtownia Danych</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>zut7yvAVBeDK3WB3+EfMXeHTL+o=06.01.2021 19:18:2906.01.2021 19:18:28</TimeStamp>
+        <ID>
+          <String>Hurtownia Danych</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>HfNmpS7X6OoHnxFPlnNrPK1rroM=06.01.2021 19:32:1006.01.2021 19:20:11</TimeStamp>
+        <ID>
+          <String>Stations</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>SDXxdnFlo9AzodPRSqytDdxHT9k=06.01.2021 19:32:1006.01.2021 19:20:11</TimeStamp>
+        <ID>
+          <String>Time</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jWFxV90GGpSbGlTqc6wsqfW2BsQ=06.01.2021 19:32:1006.01.2021 19:20:11</TimeStamp>
+        <ID>
+          <String>Drivers</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>fqXyYCcCTFctwZVD2usciM4cieQ=06.01.2021 19:32:1006.01.2021 19:20:11</TimeStamp>
+        <ID>
+          <String>Tramways</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ndGm0fKJVZu2Q3ZHNxUjJabIF7s=06.01.2021 19:32:1006.01.2021 19:20:11</TimeStamp>
+        <ID>
+          <String>Failures</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>vVdNuPGkM0u364WKb4Pp/ya2NSg=06.01.2021 19:32:1006.01.2021 19:20:11</TimeStamp>
+        <ID>
+          <String>Dates</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>8w6ykhowOwt9pa55YJueRPITtjw=06.01.2021 19:55:0606.01.2021 19:20:11mYjhb6XIurL3epaY9cQhODkrns8=06.01.2021 19:20:1106.01.2021 19:20:11</TimeStamp>
+        <ID>
+          <String>Hurtownia Danych</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>0F78Ldo2UGu7wWAAU/WhCFKedn4=06.01.2021 19:15:5206.01.2021 19:15:49</TimeStamp>
+      <ID>
+        <String>warehouse_implementation</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2021-01-06T18:56:03.52Z</LastDeployed>
+</DeploymentSnapshot>

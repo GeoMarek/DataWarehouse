@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "warehouse_implementation", "warehouse_implementation.dwproj", "{FB7A0672-61D8-4D6F-835F-749043042D19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB7A0672-61D8-4D6F-835F-749043042D19}.Development|Default.ActiveCfg = Development
+		{FB7A0672-61D8-4D6F-835F-749043042D19}.Development|Default.Build.0 = Development
+		{FB7A0672-61D8-4D6F-835F-749043042D19}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCFF79FF-BE02-4145-8796-1260577C358D}
+	EndGlobalSection
+EndGlobal
