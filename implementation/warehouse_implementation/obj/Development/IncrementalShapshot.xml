@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <ProcessingOption>Default</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -75,7 +75,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>8w6ykhowOwt9pa55YJueRPITtjw=06.01.2021 19:55:0606.01.2021 19:20:11mYjhb6XIurL3epaY9cQhODkrns8=06.01.2021 19:20:1106.01.2021 19:20:11</TimeStamp>
+        <TimeStamp>Nr9EB1vhfCm4c70NdQC8IH/tCFU=07.01.2021 23:06:3606.01.2021 19:20:11vq4FIUlmEEdNu0DTp4QQ2wD/PHA=07.01.2021 20:53:5206.01.2021 19:20:11</TimeStamp>
         <ID>
           <String>Hurtownia Danych</String>
         </ID>
@@ -92,5 +92,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-01-06T18:56:03.52Z</LastDeployed>
+  <LastDeployed>2021-01-07T22:06:43.903333Z</LastDeployed>
 </DeploymentSnapshot>

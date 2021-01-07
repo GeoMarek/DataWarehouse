@@ -1,17 +1,17 @@
-﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="8340579b-914a-4b7d-bc03-9d78ed3f968e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3e6b63f8-425a-4e47-bfd5-69314b6a2b80" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Hurtownia Danych</ID>
   <MeasureGroups>
     <MeasureGroup>
       <ID>Journeys</ID>
       <Partitions>
-        <Partition dwd:design-time-name="aa705260-608c-489a-b352-6f802b89ff9a">
+        <Partition dwd:design-time-name="6428a641-accc-4114-9b0d-ffd3219f2789">
           <ID>Journeys</ID>
           <Name>Journeys</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="29d1ac98-f6a7-4f07-87b1-f731fb450a7c">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="fd78e9d9-67a3-47bc-90f1-b8c1cc3578f6">
             <DataSourceViewID>Hurtownia Danych</DataSourceViewID>
             <TableID>dbo_Journeys</TableID>
           </Source>
@@ -24,14 +24,14 @@
     <MeasureGroup>
       <ID>Work Indexes</ID>
       <Partitions>
-        <Partition dwd:design-time-name="58fd54ee-fe54-435e-9778-562218fee43a">
+        <Partition dwd:design-time-name="56ca080f-24bb-4cd2-a487-630c80e1e989">
           <ID>Work Indexes</ID>
           <Name>Work Indexes</Name>
           <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
           <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
           <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
           <State>Unprocessed</State>
-          <Source xsi:type="DsvTableBinding" dwd:design-time-name="2f4618b0-4440-475e-b18e-a7d54b5e3837">
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f5aa4871-1b58-4386-8fba-64b90cec39f3">
             <DataSourceViewID>Hurtownia Danych</DataSourceViewID>
             <TableID>dbo_WorkIndexes</TableID>
           </Source>

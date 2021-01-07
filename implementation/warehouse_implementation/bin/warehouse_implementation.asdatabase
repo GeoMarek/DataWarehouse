@@ -1307,7 +1307,7 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
           <Value>
             <dds xmlns="">
-              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="36" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4758" scrolltop="820" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="90" x="35878" y="18918" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+              <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="36" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4758" scrolltop="551" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="90" x="35878" y="17674" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                 <font>
                   <ddsxmlobjectstreamwrapper binary="01ee0000900144420100065461686f6d61" />
                 </font>
@@ -1599,7 +1599,7 @@
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-          <Value>820</Value>
+          <Value>551</Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -2131,6 +2131,50 @@ VISIBLE = 1  ; </Text>
           </Commands>
         </MdxScript>
       </MdxScripts>
+      <Kpis>
+        <Kpi>
+          <ID>KPI</ID>
+          <Name>FailureRate</Name>
+          <AssociatedMeasureGroupID>Journeys</AssociatedMeasureGroupID>
+          <Value>([Measures].[Count_Journey], [Failures].[Type].&amp;[drobna usterka])</Value>
+          <Goal>	((KPIValue( "FailureRate" ), ParallelPeriod (
+		[Dates].[Hierarchy].[Month], 
+		1,
+		[Dates].[Hierarchy].CurrentMember )
+	) * 0.975)</Goal>
+          <Status>IIF ( KPIVALUE("FailureRate") - KPIGoal("FailureRate") &lt; 0, 
+		1, 
+		IIF ( KPIVALUE("FailureRate") - KPIGoal("FailureRate") &gt; 0, 
+			-1, 
+			0
+		)
+	)</Status>
+          <Trend>IIf (KPIValue("FailureRate") &gt; (KPIValue( "FailureRate" ), ParallelPeriod ([Dates].[Hierarchy].[Month], 1, [Dates].[Hierarchy].CurrentMember )), 
+	1, 
+	IIf (KPIValue("FailureRate") &lt; (KPIValue( "FailureRate" ), ParallelPeriod ([Dates].[Hierarchy].[Month], 1, [Dates].[Hierarchy].CurrentMember )), 
+		-1, 
+		0
+	)
+)</Trend>
+          <TrendGraphic>Standard Arrow</TrendGraphic>
+          <StatusGraphic>Smiley Face</StatusGraphic>
+        </Kpi>
+        <Kpi>
+          <ID>KPI 1</ID>
+          <Name>TimeDelay</Name>
+          <AssociatedMeasureGroupID>Journeys</AssociatedMeasureGroupID>
+          <Value>([Measures].[Sum_TimeDelay]/[Measures].[Count_Journey])</Value>
+          <Goal>	( KPIValue( "TimeDelay" ), ParallelPeriod (
+	[Dates].[Hierarchy].[Month], 1,
+	[Dates].[Hierarchy].CurrentMember ) ) * 0.99</Goal>
+          <Status>IIf (KPIVALUE( "TimeDelay" ) &gt; KPIGoal("TimeDelay"), 1, -1)</Status>
+          <Trend>	IIf ( KPIValue( "TimeDelay" ) &gt; ( KPIValue( "TimeDelay" ), ParallelPeriod (
+	[Dates].[Hierarchy].[Month], 1,
+	[Dates].[Hierarchy].CurrentMember ) ), 1, -1)</Trend>
+          <TrendGraphic>Standard Arrow</TrendGraphic>
+          <StatusGraphic>Smiley Face</StatusGraphic>
+        </Kpi>
+      </Kpis>
     </Cube>
   </Cubes>
   <DataSources>
@@ -2165,7 +2209,6 @@ VISIBLE = 1  ; </Text>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
-          <Value></Value>
         </Annotation>
         <Annotation>
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
@@ -2422,41 +2465,41 @@ VISIBLE = 1  ; </Text>
               <xs:selector xpath=".//dbo_WorkIndexes" />
               <xs:field xpath="ID_WorkIndex" />
             </xs:unique>
-            <xs:keyref name="FK__WorkIndex__ID_Dr__0915401C" refer="dbo_Drivers_Constraint1">
-              <xs:selector xpath=".//dbo_WorkIndexes" />
-              <xs:field xpath="ID_Driver" />
-            </xs:keyref>
             <xs:keyref name="FK__WorkIndex__ID_Mo__0A096455" refer="Constraint1">
               <xs:selector xpath=".//dbo_WorkIndexes" />
               <xs:field xpath="ID_Month" />
             </xs:keyref>
-            <xs:keyref name="FK__Journeys__ID_Dat__0CE5D100" refer="Constraint1">
-              <xs:selector xpath=".//dbo_Journeys" />
-              <xs:field xpath="ID_Date" />
-            </xs:keyref>
-            <xs:keyref name="FK__Journeys__ID_Fai__10B661E4" refer="dbo_Failures_Constraint1">
-              <xs:selector xpath=".//dbo_Journeys" />
-              <xs:field xpath="ID_Failure" />
-            </xs:keyref>
-            <xs:keyref name="FK__Journeys__ID_Tra__11AA861D" refer="dbo_Tramways_Constraint1">
-              <xs:selector xpath=".//dbo_Journeys" />
-              <xs:field xpath="ID_Tramway" />
-            </xs:keyref>
-            <xs:keyref name="FK__Journeys__ID_Dri__129EAA56" refer="dbo_Drivers_Constraint1">
-              <xs:selector xpath=".//dbo_Journeys" />
+            <xs:keyref name="FK__WorkIndex__ID_Dr__0915401C" refer="dbo_Drivers_Constraint1">
+              <xs:selector xpath=".//dbo_WorkIndexes" />
               <xs:field xpath="ID_Driver" />
             </xs:keyref>
-            <xs:keyref name="FK__Journeys__ID_Sta__0ECE1972" refer="dbo_Stations_Constraint1">
+            <xs:keyref name="FK__Journeys__ID_Sta__0FC23DAB" refer="dbo_Stations_Constraint1">
               <xs:selector xpath=".//dbo_Journeys" />
-              <xs:field xpath="ID_StationStart" />
+              <xs:field xpath="ID_StationEnd" />
             </xs:keyref>
             <xs:keyref name="FK__Journeys__ID_Tim__0DD9F539" refer="dbo_Time_Constraint1">
               <xs:selector xpath=".//dbo_Journeys" />
               <xs:field xpath="ID_Time" />
             </xs:keyref>
-            <xs:keyref name="FK__Journeys__ID_Sta__0FC23DAB" refer="dbo_Stations_Constraint1">
+            <xs:keyref name="FK__Journeys__ID_Sta__0ECE1972" refer="dbo_Stations_Constraint1">
               <xs:selector xpath=".//dbo_Journeys" />
-              <xs:field xpath="ID_StationEnd" />
+              <xs:field xpath="ID_StationStart" />
+            </xs:keyref>
+            <xs:keyref name="FK__Journeys__ID_Dri__129EAA56" refer="dbo_Drivers_Constraint1">
+              <xs:selector xpath=".//dbo_Journeys" />
+              <xs:field xpath="ID_Driver" />
+            </xs:keyref>
+            <xs:keyref name="FK__Journeys__ID_Tra__11AA861D" refer="dbo_Tramways_Constraint1">
+              <xs:selector xpath=".//dbo_Journeys" />
+              <xs:field xpath="ID_Tramway" />
+            </xs:keyref>
+            <xs:keyref name="FK__Journeys__ID_Fai__10B661E4" refer="dbo_Failures_Constraint1">
+              <xs:selector xpath=".//dbo_Journeys" />
+              <xs:field xpath="ID_Failure" />
+            </xs:keyref>
+            <xs:keyref name="FK__Journeys__ID_Dat__0CE5D100" refer="Constraint1">
+              <xs:selector xpath=".//dbo_Journeys" />
+              <xs:field xpath="ID_Date" />
             </xs:keyref>
           </xs:element>
         </xs:schema>
